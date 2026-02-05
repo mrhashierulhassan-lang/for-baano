@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Khadeeja 💖</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at top, #1a0033, #000);
+    overflow: hidden;
+    font-family: 'Segoe Script', cursive;
+    color: pink;
+    text-align: center;
+  }
+
+  h1 {
+    margin-top: 70px;
+    font-size: 50px;
+    animation: glow 2s infinite alternate;
+  }
+
+  p {
+    font-size: 24px;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 10px pink; }
+    to { text-shadow: 0 0 35px hotpink; }
+  }
+
+  /* Rose petals */
+  .petal {
+    position: absolute;
+    font-size: 28px;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    from { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+    to { transform: translateY(110vh) rotate(360deg); opacity: 0.8; }
+  }
+
+  /* Popup */
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 182, 193, 0.95);
+    color: #400020;
+    padding: 25px 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px hotpink;
+    display: none;
+    font-size: 22px;
+  }
+
+  button {
+    margin-top: 25px;
+    padding: 14px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    background: hotpink;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 20px pink;
+  }
+
+  button:hover {
+    background: deeppink;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Khadeeja Ali 🌸</h1>
+<p>I love you so much meri Baano ❤️</p>
+
+<!-- Music -->
+<audio id="bgMusic" src="love.mp3" autoplay loop></audio>
+
+<!-- Buttons -->
+<button onclick="askChoice()">A question for you 😏💖</button><br>
+<button onclick="goNext()">Enter our world 🌙</button>
+
+<div class="popup" id="popup"></div>
+
+<script>
+  // Rose petals
+  function createPetal() {
+    const petal = document.createElement("div");
+    petal.className = "petal";
+    petal.innerHTML = "🌹";
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDuration = (5 + Math.random() * 5) + "s";
+    document.body.appendChild(petal);
+    setTimeout(() => petal.remove(), 10000);
+  }
+  setInterval(createPetal, 300);
+
+  // Popup function
+  function showPopup(message) {
+    const p = document.getElementById("popup");
+    p.innerHTML = message;
+    p.style.display = "block";
+    setTimeout(() => p.style.display = "none", 3000);
+  }
+
+  // Ask chocolate or makeup
+  function askChoice() {
+    const choice = prompt("Do you want chocolate 🍫 or makeup 💄?");
+    if(choice) {
+      showPopup("No worries, I will give you BOTH! 😍❤️");
+    } else {
+      showPopup("Haha, okay 😘");
+    }
+  }
+
+  // Go to next page
+  function goNext() {
+    window.location.href = "love.html";
+  }
+</script>
+
+</body>
+</html>
